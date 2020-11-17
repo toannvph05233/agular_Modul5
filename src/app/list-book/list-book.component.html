@@ -1,0 +1,29 @@
+<h1>List Books</h1>
+<br>
+<button class="btn btn-success" routerLink="create">Create Books</button>
+<br>
+<br>
+<h3>hiện tại đang có {{ListBooks.length}} Books</h3>
+<br>
+  <table class="table">
+    <thead class="thead-dark">
+    <tr>
+      <th>#</th>
+      <th>title</th>
+      <th>author</th>
+      <th>description</th>
+      <th></th>
+      <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let books of ListBooks; index as i">
+      <td>{{i+1}}</td>
+      <td (click)="getEdit(books)" routerLink="detaile">{{books.title}}</td>
+      <td>{{books.author}}</td>
+      <td>{{books.description}}</td>
+      <td><button class="btn btn-secondary" (click)="getEdit(books)" routerLink="edit">Edit</button></td>
+      <td><button class="btn btn-secondary" (click)="deleteBook(books)">Delete</button></td>
+    </tr>
+    </tbody>
+  </table>
